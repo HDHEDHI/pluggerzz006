@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Pluggerzz - Your Ultimate Help Squad</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+
+  <body>
+    <!-- Header Section with navigation links -->
+    <header>
+      <h1>Pluggerzz</h1>
+      <nav>
+        <ul>
+          <li><a href="#">Home</a></li>
+          <li><a href="#">Our Services</a></li>
+          <li><a href="#">Get Started</a></li>
+        </ul>
+      </nav>
+    </header>
+
+    <!-- Content Sections for Pluggerzz services -->
+    <section class="content-container" aria-labelledby="handyman-service-title">
+      <img
+        src="https://images.squarespace-cdn.com/content/v1/611b3a86fb6a226aadffcf79/0d2be701-5381-46bc-9543-d46a4a46a89a/Can+A+Handyman+Do+Plumbing.png?format=2500w"
+        alt="A handyman fixing a sink"
+        srcset="
+          https://images.squarespace-cdn.com/content/v1/611b3a86fb6a226aadffcf79/0d2be701-5381-46bc-9543-d46a4a46a89a/Can+A+Handyman+Do+Plumbing.png?format=500w   500w,
+          https://images.squarespace-cdn.com/content/v1/611b3a86fb6a226aadffcf79/0d2be701-5381-46bc-9543-d46a4a46a89a/Can+A+Handyman+Do+Plumbing.png?format=1000w 1000w,
+          https://images.squarespace-cdn.com/content/v1/611b3a86fb6a226aadffcf79/0d2be701-5381-46bc-9543-d46a4a46a89a/Can+A+Handyman+Do+Plumbing.png?format=1500w 1500w
+        "
+        sizes="(max-width: 600px) 500px, (max-width: 900px) 1000px, 1500px"
+        aria-label="Handyman Service"
+      />
+      <div class="container-text">
+        <h2 id="handyman-service-title">Hire a Handyman Today</h2>
+        <h3>Connect with trusted professionals for your home services</h3>
+        <button
+          aria-live="polite"
+          aria-label="Learn more about handyman services"
+        >
+          Learn More
+        </button>
+      </div>
+    </section>
+
+    <section class="content-container" aria-labelledby="cleaning-service-title">
+      <img
+        src="https://thumbs.dreamstime.com/b/professional-office-cleaning-service-action-close-up-vacuum-cleaner-carpet-clean-office-environment-close-up-shot-317813048.jpg?w=992"
+        alt="A cleaning service in action"
+        srcset="
+          https://thumbs.dreamstime.com/b/professional-office-cleaning-service-action-close-up-vacuum-cleaner-carpet-clean-office-environment-close-up-shot-317813048.jpg?w=500 500w,
+          https://thumbs.dreamstime.com/b/professional-office-cleaning-service-action-close-up-vacuum-cleaner-carpet-clean-office-environment-close-up-shot-317813048.jpg?w=992 992w
+        "
+        sizes="(max-width: 600px) 500px, 992px"
+        aria-label="Cleaning Service"
+      />
+      <div class="container-text">
+        <h2 id="cleaning-service-title">Professional Cleaning Services</h2>
+        <h3>Get your space sparkling clean with just a click</h3>
+        <button
+          aria-live="polite"
+          aria-label="Learn more about cleaning services"
+        >
+          Learn More
+        </button>
+      </div>
+    </section>
+
+    <section
+      class="content-container"
+      aria-labelledby="gardening-service-title"
+    >
+      <img
+        src="https://yourlocalgardeners.co.uk/gardeners-near-me-img/hedge-cutting-service-reading.jpg"
+        alt="A gardener planting flowers"
+        srcset="
+          https://yourlocalgardeners.co.uk/gardeners-near-me-img/hedge-cutting-service-reading.jpg?w=500 500w,
+          https://yourlocalgardeners.co.uk/gardeners-near-me-img/hedge-cutting-service-reading.jpg?w=992 992w
+        "
+        sizes="(max-width: 600px) 500px, 992px"
+        aria-label="Gardening Service"
+      />
+      <div class="container-text">
+        <h2 id="gardening-service-title">Gardening Services</h2>
+        <h3>Transform your outdoor space with our expert gardeners</h3>
+        <button
+          aria-live="polite"
+          aria-label="Learn more about gardening services"
+        >
+          Learn More
+        </button>
+      </div>
+    </section>
+
+    <!-- JavaScript for key bindings -->
+    <script>
+      // Array of images
+      const images = [
+        "https://images.squarespace-cdn.com/content/v1/611b3a86fb6a226aadffcf79/0d2be701-5381-46bc-9543-d46a4a46a89a/Can+A+Handyman+Do+Plumbing.png?format=2500w",
+        "https://thumbs.dreamstime.com/b/professional-office-cleaning-service-action-close-up-vacuum-cleaner-carpet-clean-office-environment-close-up-shot-317813048.jpg?w=992",
+        "https://yourlocalgardeners.co.uk/gardeners-near-me-img/hedge-cutting-service-reading.jpg",
+      ];
+
+      let currentIndex = 0;
+
+      // Function to update the image based on index
+      function updateImage(index) {
+        const imageElements = document.querySelectorAll("img");
+        imageElements.forEach((image, i) => {
+          image.src = images[(index + i) % images.length];
+        });
+      }
+
+      // Keydown event for arrow keys
+      document.addEventListener("keydown", function (event) {
+        if (event.key === "ArrowRight") {
+          currentIndex = (currentIndex + 1) % images.length; // Move right
+        } else if (event.key === "ArrowLeft") {
+          currentIndex = (currentIndex - 1 + images.length) % images.length; // Move left
+        }
+        updateImage(currentIndex);
+      });
+    </script>
+  </body>
+</html>
